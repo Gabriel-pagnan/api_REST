@@ -10,6 +10,7 @@ import userRoute from './src/routes/user';
 import tokenRoute from './src/routes/token';
 import alunoRoute from './src/routes/aluno';
 import photoRoute from './src/routes/photo';
+import { resolve } from 'path';
 
 class App {
   constructor() {
@@ -21,6 +22,7 @@ class App {
   middlewares() {
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
+    this.app.use(express.static(resolve(__dirname, 'uploads')));
   }
 
   routes() {
